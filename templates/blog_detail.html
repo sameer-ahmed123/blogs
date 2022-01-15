@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%block content %}
+<div class="container-fluid">
+    <div class="d-flex align-items-center col-lg-12 col-md-8 col-sm-5 flex-column">
+        <div style="width:100%;" class="border mt-3 border-secondary rounded">
+             <div class="container">
+               <h1 style="font-size:35px;" class="mr-auto rounded bg-secondary mt-2 pl-3 pb-2 pt-1 ">{{post.title}}</h1>
+             </div>
+             <small style="margin-left:4%;margin-bottom:4px;">post added at {{post.date_added}}</small>
+             <p style="margin-left:4%;margin-bottom:4px;"><strong>{{post.intro}}</strong></p>
+             <div style="width:100%" class="container">
+                 <p class="p-4">{{post.body}}</p>
+             </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h3 style="margin-left:25px;">Comments..</h3>
+    <div class="container border border-warning">
+
+         {% for comment in post.comments.all %}
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
+                        <br>
+                        {{ comment.body }}
+                    </p>
+                </div>
+            </div>
+        </article>
+    {% empty %}
+        <div class="notification">
+            <p class="w-100 text-center">No comments yet!</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+    <hr>
+
+<!--comment section starts-->
+<div style="padding-bottom:150px;" class="container">
+    {% if user.is_authenticated %}
+    <div class="">
+            <h2 class="subtitle">Add comment</h2>
+    <div  class="border p-5">
+        <form method="post" action=".">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="btn btn-success w-25 text-center">Submit</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    </div>
+    {% else %}
+    <a href="{% url 'login' %}">Login to add Comments .</a>
+    {% endif %}
+</div>
+
+{% endblock %}
+</body>
+</html>

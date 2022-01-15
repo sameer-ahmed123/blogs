@@ -1,0 +1,29 @@
+{% extends "base.html"  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%block content%}
+<div style="padding-bottom:200px;" class="container-fluid">
+    <div class="mt-5 border p-5">
+        <form  method="post" >
+    {% csrf_token %}
+    <label><strong>Title</strong></label><br>
+    {{form.title}}
+    <label><strong>Slug</strong></label><br>
+   {{form.slug}}
+    <label><strong>Introduction</strong></label>
+    {{form.intro}}
+    <label><strong>Body</strong></label>
+    {{form.body}}
+    <input type="submit" class="btn btn-success w-100 text-center mt-3" value="submit">
+</form>
+    </div>
+</div>
+
+{%endblock%}
+</body>
+</html>

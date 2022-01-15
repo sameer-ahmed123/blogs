@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+</head>
+<body>
+{%block content%}
+<div class="container-fluid">
+    <div class="d-flex align-items-center col-lg-12  col-md-12 col-sm-10 flex-column">
+        {% for blogs in blogs %}
+        <div style="width:100%;" class="border mt-3 border-secondary rounded">
+            <div class="container">
+                <h2 style="font-size:35px;" class="mr-auto rounded bg-secondary mt-2 pl-3 pb-2 pt-1 ">{{blogs.title}}</h2>
+            </div>
+            <small style="margin-left:4%;margin-bottom:4px;">posted at {{blogs.date_added}}</small>
+            <p style="margin-left:4%;margin-bottom:4px;"><strong>{{blogs.intro}}</strong></p>
+            <a style="margin-left:90%;" href="{% url 'post_detail' blogs.slug %}">Read more</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}
+</body>
+</html>
