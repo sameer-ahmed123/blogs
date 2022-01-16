@@ -20,5 +20,6 @@ from app.views import blogdetail
 urlpatterns = [
     path('',include('app.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('<slug:slug>/', blogdetail, name='post_detail'),
 ]
