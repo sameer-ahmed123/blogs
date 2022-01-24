@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,24 @@
     <title>edit</title>
 </head>
 <body>
-
+{%block content %}
+<div class="container">
+    <div class="d-flex align-items-center col-lg-12 col-md-8 col-sm-5 flex-column">
+        <div style="width:100%;" class="border mt-3 border-secondary rounded">
+             <div class="container">
+               <h1 style="font-size:35px;" class="mr-auto rounded bg-secondary mt-2 pl-3 pb-2 pt-1 " >{{edit.title}}</h1>
+             </div>
+             <small style="margin-left:4%;margin-bottom:4px;" >post added at {{edit.date_added}}</small>
+            <p style="margin-left:4%;margin-bottom:4px;"><strong>Written by {{edit.writer}}</strong></p>
+             <p style="margin-left:4%;margin-bottom:4px;"><strong>{{edit.intro}}</strong></p>
+             <div style="width:100%" class="container">
+                 <p class="p-4">{{edit.body}}</p>
+             </div>
+        </div>
+    </div>
+</div>
+<a href="{% url 'update' edit.slug %}">Update</a>
+<a href="{% url 'delete' edit.slug %}">Delete</a>
+{% endblock %}
 </body>
 </html>

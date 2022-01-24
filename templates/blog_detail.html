@@ -14,10 +14,11 @@
                <h1 style="font-size:35px;" class="mr-auto rounded bg-secondary mt-2 pl-3 pb-2 pt-1 ">{{post.title}}</h1>
              </div>
              <small style="margin-left:4%;margin-bottom:4px;">post added at {{post.date_added}}</small>
+            <p style="margin-left:4%;margin-bottom:4px;"><strong>Written by {{post.writer}}</strong></p>
              <p style="margin-left:4%;margin-bottom:4px;"><strong>{{post.intro}}</strong></p>
              <div style="width:100%" class="container">
                  <p class="p-4">{{post.body}}</p>
-             </div>
+             </div> <a style="margin-left:90%;" href="{% url 'edit' post.slug %}">Edit</a>
         </div>
     </div>
 </div>

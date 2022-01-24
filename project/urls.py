@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from app.views import blogdetail
+from app.views import blogdetail,edit,update,delete
 
 urlpatterns = [
     path('',include('app.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('update/<slug:slug>',update,name="update"),
+    path('delete/<slug:slug>',delete,name="delete"),
+    path('edit/<slug:slug>',edit, name='edit'),
     path('<slug:slug>/', blogdetail, name='post_detail'),
 ]

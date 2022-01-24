@@ -19,6 +19,7 @@ class blog(models.Model):
     slug =models.SlugField()
     intro =models.TextField()
     body= models.TextField()
+    writer=models.TextField()
     date_added=models.DateTimeField(auto_now_add=True)
 
     class Meta:

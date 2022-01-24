@@ -79,3 +79,21 @@ def writeblog(request):
     else:
         form=Blogform()
         return render(request,"write.html",{'form':form})
+
+
+def edit(request,slug):
+    edit =blog.objects.get(slug=slug)
+    return render(request,"edit.html",{'edit':edit})
+
+def update(request,slug):
+    edit = blog.objects.get(slug=slug)
+    form = Blogform(request.POST, instance=edit)
+    if form.is_valid():
+        form.save()
+        return redirect("/")
+    return render(request, 'update.html', {"edit" :edit})
+
+def delete(request,slug):
+    delete= blog.objects.get(slug=slug)
+    delete.delete()
+    return redirect('/')

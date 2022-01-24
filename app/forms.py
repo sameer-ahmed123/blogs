@@ -16,12 +16,13 @@ class CommentForm(forms.ModelForm):
 class Blogform(forms.ModelForm):
     class Meta:
         model=blog
-        fields =['title','slug','intro','body']
+        fields =['title','slug','intro','body','writer']
 
         widgets ={
             'title':forms.TextInput(attrs={'class':'form-control','required':True}),
             'slug':forms.TextInput(attrs={'class':'form-control','required':True}),
             'intro':forms.Textarea(attrs={'class':'form-control','required':True}),
-            'body':forms.Textarea(attrs={'class':'form-control','required':True})
+            'body':forms.Textarea(attrs={'class':'form-control','required':True}),
+            'writer':forms.TextInput(attrs={'class':'form-control','required':True})
 
         }

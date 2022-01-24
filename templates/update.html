@@ -1,4 +1,4 @@
-{% extends "base.html"  %}
+{% extends "base.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +12,15 @@
         <form  method="post" >
     {% csrf_token %}
     <label><strong>Title</strong></label><br>
-    {{form.title}}
+    <input type="text" name="title" id="title" value="{{edit.title}}">
     <label><strong>Slug</strong></label><br>
-   {{form.slug}}
+    <input type="text" name="slug" id="slug" value="{{edit.slug}}">
     <label><strong>Writen by</strong></label>
-     {{form.writer}}
+  <input type="text" name="writer" id="writer" value="{{edit.writer}}">
     <label><strong>Introduction</strong></label>
-    {{form.intro}}
+            <textarea name="intro" id="intro">{{edit.intro}}</textarea>
     <label><strong>Body</strong></label>
-    {{form.body}}
+   <textarea name="body" id="body">{{edit.body}}</textarea>
     <input type="submit" class="btn btn-success w-100 text-center mt-3" value="submit">
 </form>
     </div>
