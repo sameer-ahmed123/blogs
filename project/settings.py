@@ -90,7 +90,7 @@ DATABASES = {
         # port number.
         'PORT': '3306',
         # database name.
-        'NAME': 'newblog',
+        'NAME': 'blogs',
         # user name.
         'USER': 'root',
         # password

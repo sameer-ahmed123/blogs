@@ -26,8 +26,23 @@
 <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#toggle" role="button" aria-controls="sidebar">
   Link with href
 </a>
-<div class="offcanvas offcanvas-start" tabindex="-1" id="toggle" aria-labelledby="sidebar-lable>
-
+<div class="offcanvas offcanvas-start" id="toggle">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title"> Hello This is my offcanvas</h5>
+        <button type="button" class="btn-close" aria-label="sidebar-lable" data-bs-dismiss="offcanvas" ></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>
+            this is the body of the offcanvas that i made just five minutes ago .
+            hello again
+            bye .
+        </p>
+        <form class="form-group ">
+        <label>Type your name</label>
+        <input placeholder="your name" class="form-control" type="text"><br>
+        <input type="submit" class="btn  btn-outline-success">
+        </form>
+    </div>
 </div>
 {%endblock%}
 </body>
