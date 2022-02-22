@@ -19,7 +19,7 @@ class blog(models.Model):
     slug =models.SlugField()
     intro =models.TextField()
     body= models.TextField()
-#     make writer to aruthor ((  if django authenticated user[username] ==to the aurthor name then edit or delelte***  ))
+#     make writer to aruthor ((  if django authenticated user[username] ==to the aurthor name then edit or delelte***  )){{{{ in models use AUTH_USER_MODEL  }}}}
     writer=models.TextField()                                   
     date_added=models.DateTimeField(auto_now_add=True)
 
