@@ -19,7 +19,8 @@ class blog(models.Model):
     slug =models.SlugField()
     intro =models.TextField()
     body= models.TextField()
-    writer=models.TextField()
+#     make writer to aruthor ((  if django authenticated user[username] ==to the aurthor name then edit or delelte***  ))
+    writer=models.TextField()                                   
     date_added=models.DateTimeField(auto_now_add=True)
 
     class Meta:
